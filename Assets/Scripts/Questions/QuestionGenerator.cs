@@ -9,11 +9,19 @@ public class QuestionGenerator : MonoBehaviour
 	GameObject questionSpawned;
 	public bool questionAvailable;
 
+	float timer = 5f;
+
 	void Update () 
 	{
-		if (questionSpawned == null)
+		//Start Timer
+		timer -= Time.deltaTime;
+		//Show timer in nearest second
+		int seconds = Mathf.RoundToInt(timer);
+
+		if (questionSpawned == null && timer <= 0)
 		{
 			SpawnQuestions();
+			timer = 0;
 		}
 
 	}
