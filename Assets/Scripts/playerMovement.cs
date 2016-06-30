@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerMovement : MonoBehaviour 
 {
 	private Rigidbody2D playerChar;
 	public Animator animator;
+	public Text distanceTravelledText;
+
+	float distanceTravelled = 0;
+	Vector2 lastPosition;
 
 	[SerializeField] public float moveSpeed;
 	[SerializeField] public float maxSpeed;
@@ -12,6 +17,7 @@ public class playerMovement : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		lastPosition = transform.position;
 		playerChar = GetComponent<Rigidbody2D>();
 		moveSpeed = 0;
 		maxSpeed = 0;
@@ -20,6 +26,10 @@ public class playerMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		distanceTravelled += Vector2.Distance(transform.position, lastPosition) * 2;
+		lastPosition = transform.position;
+		int metersTravelled = Mathf.RoundToInt(distanceTravelled);
+		distanceTravelledText.text = metersTravelled + " meters";
 		
 	}
 
