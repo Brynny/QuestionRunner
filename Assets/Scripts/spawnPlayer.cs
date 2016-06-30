@@ -8,7 +8,7 @@ public class spawnPlayer : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Instantiate (Player, spawnPoint.position, spawnPoint.rotation);
+	//	Instantiate (Player, spawnPoint.position, spawnPoint.rotation);
 	}
 	
 	// Update is called once per frame
