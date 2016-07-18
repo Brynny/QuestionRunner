@@ -29,7 +29,7 @@ public class playerMovement : MonoBehaviour
 		distanceTravelled += Vector2.Distance(transform.position, lastPosition) * 2;
 		lastPosition = transform.position;
 		int metersTravelled = Mathf.RoundToInt(distanceTravelled);
-		distanceTravelledText.text = metersTravelled + " meters";
+		distanceTravelledText.text = metersTravelled + " metres";
 		
 	}
 
