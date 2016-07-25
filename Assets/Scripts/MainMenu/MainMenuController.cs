@@ -4,11 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour 
 {
-	void Start()
-	{
-
-	}
-
 	public void LoadNewGame () 
 	{
 		SceneManager.LoadScene ("CharacterSelect");

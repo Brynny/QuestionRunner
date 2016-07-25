@@ -20,6 +20,7 @@ public class correctAnswer : MonoBehaviour
 	void IncreaseSpeed()
 	{
 		player.GetComponent<playerMovement>().SpeedUp();
+		Camera.main.gameObject.GetComponent<GameController>().QuestionsAnswered();
 		Destroy(transform.parent.gameObject);
 	}
 }
