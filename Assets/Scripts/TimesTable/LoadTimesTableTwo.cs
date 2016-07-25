@@ -2,20 +2,20 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LoadNextScene : MonoBehaviour 
+public class LoadTimesTableTwo : MonoBehaviour 
 {
 
 
-	public void LoadSameLevel () 
+	public void LoadLevelTwo () 
 	{
-		SceneManager.LoadScene ("TimesTable");
+		SceneManager.LoadScene ("TimesTable2");
 	}
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			LoadSameLevel();
+			LoadLevelTwo();
 			Destroy (other.gameObject);
 		}
 	}
