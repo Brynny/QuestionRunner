@@ -9,9 +9,12 @@ public class GameController : MonoBehaviour
 	float timer;
 	float countdown = 5f;
 
+	float CorrectAnswers = 0f;
+	public Text correctAnswersText;
+
 	void Start () 
 	{
-	
+		
 	}
 	
 
@@ -32,6 +35,15 @@ public class GameController : MonoBehaviour
 		//show the Timer
 		timerText.text = "Timer: " + seconds + " seconds";
 		}
+
+		//Apply Correct Answer Score
+		correctAnswersText.text = "Correct Answers: " + CorrectAnswers;
 	
 	}
+
+	public void QuestionsAnswered ()
+	{
+		CorrectAnswers = CorrectAnswers + 1f;
+	}
+
 }

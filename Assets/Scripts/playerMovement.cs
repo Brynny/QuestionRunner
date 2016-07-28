@@ -8,8 +8,11 @@ public class playerMovement : MonoBehaviour
 	public Animator animator;
 	public Text distanceTravelledText;
 
-	float distanceTravelled = 0;
+	float distanceTravelled = 0f;
+	float maxDistance = 200f;
 	Vector2 lastPosition;
+
+	public Image Bar;
 
 	[SerializeField] public float moveSpeed;
 	[SerializeField] public float maxSpeed;
@@ -48,6 +51,13 @@ public class playerMovement : MonoBehaviour
 		{
 			moveSpeed = 0;
 		}
+		travelledDistance();
+	}
+
+	void travelledDistance()
+	{
+		float calc_Distance = distanceTravelled / maxDistance; 
+		SetDistanceTravelledBar(calc_Distance);
 	}
 
 	public void HandleMovement(float horizontal)
@@ -71,5 +81,10 @@ public class playerMovement : MonoBehaviour
 		moveSpeed = moveSpeed - 0.5f;
 		maxSpeed = maxSpeed - 0.5f;
 		animator.speed = animator.speed - 0.25f;
+	}
+
+	public void SetDistanceTravelledBar (float distanceTravelled)
+	{
+		Bar.transform.localScale = new Vector3(distanceTravelled, Bar.transform.localScale.y, Bar.transform.localScale.z);
 	}
 }
