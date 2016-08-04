@@ -17,6 +17,13 @@ public class playerMovement : MonoBehaviour
 	[SerializeField] public float moveSpeed;
 	[SerializeField] public float maxSpeed;
 
+	//Jump Variables
+	public float jumpHeight;
+	public Transform groundCheck;
+	public float groundCheckRadius;
+	public LayerMask whatIsGround;
+	private bool grounded;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -52,6 +59,7 @@ public class playerMovement : MonoBehaviour
 			moveSpeed = 0;
 		}
 		travelledDistance();
+		CharacterJump();
 	}
 
 	void travelledDistance()
@@ -67,6 +75,11 @@ public class playerMovement : MonoBehaviour
 		{
 			playerChar.velocity = playerChar.velocity.normalized * maxSpeed;
 		}
+
+		if(Input.GetKey (KeyCode.Space) && grounded)
+		{
+			playerChar.velocity = new Vector2(playerChar.velocity.x, jumpHeight);
+		}
 	}
 
 	public void SpeedUp()
@@ -81,6 +94,11 @@ public class playerMovement : MonoBehaviour
 		moveSpeed = moveSpeed - 0.5f;
 		maxSpeed = maxSpeed - 0.5f;
 		animator.speed = animator.speed - 0.25f;
+	}
+
+	public void CharacterJump()
+	{
+		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 	}
 
 	public void SetDistanceTravelledBar (float distanceTravelled)
