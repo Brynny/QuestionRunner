@@ -2,16 +2,15 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LoadTimesTableTwo : MonoBehaviour 
+public class LoadVictory : MonoBehaviour 
 {
 
-
-	public void LoadLevelTwo () 
+	public void LoadVictoryLevel () 
 	{
-		SceneManager.LoadScene ("TimesTable2");
+		SceneManager.LoadScene ("Victory");
 	}
 
-	public void LoadDefeatLevel () 
+	public void LoadDefeatLevel()
 	{
 		SceneManager.LoadScene ("Defeat");
 	}
@@ -20,7 +19,7 @@ public class LoadTimesTableTwo : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			LoadLevelTwo();
+			LoadVictoryLevel();
 			Destroy (other.gameObject);
 		}
 

@@ -11,9 +11,9 @@ public class LoadTimesTableThree : MonoBehaviour
 		SceneManager.LoadScene ("TimesTable3");
 	}
 
-	public void LoadMainMenu () 
+	public void LoadDefeatLevel () 
 	{
-		SceneManager.LoadScene ("MainMenu");
+		SceneManager.LoadScene ("Defeat");
 	}
 
 	void OnTriggerEnter2D (Collider2D other)
@@ -26,7 +26,7 @@ public class LoadTimesTableThree : MonoBehaviour
 
 		if (other.gameObject.tag == "AI")
 		{
-			LoadMainMenu();
+			LoadDefeatLevel();
 			Destroy (other.gameObject);
 		}
 	}
