@@ -21,13 +21,11 @@ public class LoadTimesTableFour : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			LoadLevelFour();
-			Destroy (other.gameObject);
 		}
 
 		if (other.gameObject.tag == "AI")
 		{
 			LoadDefeatLevel();
-			Destroy (other.gameObject);
 		}
 	}
 }

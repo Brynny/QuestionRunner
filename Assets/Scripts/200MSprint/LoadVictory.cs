@@ -20,13 +20,11 @@ public class LoadVictory : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			LoadVictoryLevel();
-			Destroy (other.gameObject);
 		}
 
 		if (other.gameObject.tag == "AI")
 		{
 			LoadDefeatLevel();
-			Destroy (other.gameObject);
 		}
 	}
 }

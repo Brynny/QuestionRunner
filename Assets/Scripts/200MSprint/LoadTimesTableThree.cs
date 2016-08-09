@@ -21,13 +21,11 @@ public class LoadTimesTableThree : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			LoadLevelThree();
-			Destroy (other.gameObject);
 		}
 
 		if (other.gameObject.tag == "AI")
 		{
 			LoadDefeatLevel();
-			Destroy (other.gameObject);
 		}
 	}
 }
