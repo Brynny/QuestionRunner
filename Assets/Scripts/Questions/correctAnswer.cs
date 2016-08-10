@@ -2,10 +2,16 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class correctAnswer : MonoBehaviour
 {
 	public Button speedUpButton;
 	public GameObject player;
+
+	public void Start()
+	{
+		
+	}
 
 	public void Update()
 	{
