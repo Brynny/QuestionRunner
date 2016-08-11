@@ -15,7 +15,6 @@ public class GoToCityLevelThree : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			LoadCityThree();
-			Destroy (other.gameObject);
 		}
 	}
 }
