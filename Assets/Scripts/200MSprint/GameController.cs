@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class GameController : MonoBehaviour
 	float timer;
 	float countdown = 5f;
 
-	float CorrectAnswers = 0f;
-	public Text correctAnswersText;
+	//CityRUnnerOnlyVariables
+	float incorrectAnswers = 5f;
+	public Text incorreectAnswerText;
 
 	void Start () 
 	{
@@ -35,15 +37,26 @@ public class GameController : MonoBehaviour
 		//show the Timer
 		timerText.text = "Timer: " + seconds + " seconds";
 		}
-
-		//Apply Correct Answer Score
-		correctAnswersText.text = "Correct Answers: " + CorrectAnswers;
-	
 	}
 
-	public void QuestionsAnswered ()
+	void FixedUpdate()
 	{
-		CorrectAnswers = CorrectAnswers + 1f;
+		//Track Incorrect Answer
+			incorreectAnswerText.text = "Incorrect Answers Left: " + incorrectAnswers;
+			WrongAnswerTracker();
+	}
+
+	public void WrongAnswer()
+	{
+		incorrectAnswers = incorrectAnswers - 1f;
+	}
+
+	public void WrongAnswerTracker()
+	{
+		if (incorrectAnswers <= 0)
+		{
+			SceneManager.LoadScene("Defeat");
+		}
 	}
 
 }

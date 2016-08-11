@@ -2,14 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class correctAnswer : MonoBehaviour
+public class CityRunnerIncorrect : MonoBehaviour 
 {
-	public Button speedUpButton;
+	public Button failButton;
 	public GameObject player;
 
 	public void Start()
 	{
-		
+
 	}
 
 	public void Update()
@@ -19,12 +19,12 @@ public class correctAnswer : MonoBehaviour
 
 	void OnEnable()
 	{
-		speedUpButton.onClick.AddListener(IncreaseSpeed);
+		failButton.onClick.AddListener(DontJump);
 	}
 
-	void IncreaseSpeed()
+	void DontJump()
 	{
-		player.GetComponent<playerMovement>().SpeedUp();
+		Camera.main.GetComponent<GameController>().WrongAnswer();
 		Destroy(transform.parent.gameObject);
 	}
 }

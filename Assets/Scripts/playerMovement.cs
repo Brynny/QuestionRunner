@@ -29,8 +29,6 @@ public class playerMovement : MonoBehaviour
 	{
 		lastPosition = transform.position;
 		playerChar = GetComponent<Rigidbody2D>();
-		moveSpeed = 0;
-		maxSpeed = 0;
 	}
 	
 	// Update is called once per frame
@@ -45,6 +43,9 @@ public class playerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		//Make animator speed half of movement speed
+		animator.speed = moveSpeed * 0.5f;
+
 		float horizontal = Input.GetAxis("Horizontal");
 		HandleMovement(horizontal);
 
@@ -59,7 +60,7 @@ public class playerMovement : MonoBehaviour
 			moveSpeed = 0;
 		}
 		travelledDistance();
-		CharacterJump();
+		CheckGrounded();
 	}
 
 	void travelledDistance()
@@ -75,30 +76,28 @@ public class playerMovement : MonoBehaviour
 		{
 			playerChar.velocity = playerChar.velocity.normalized * maxSpeed;
 		}
-
-		if(Input.GetKey (KeyCode.Space) && grounded)
-		{
-			playerChar.velocity = new Vector2(playerChar.velocity.x, jumpHeight);
-		}
 	}
 
 	public void SpeedUp()
 	{
 		moveSpeed = moveSpeed + 0.5f;
 		maxSpeed = maxSpeed + 0.5f;
-		animator.speed = animator.speed + 0.25f;
 	}
 
 	public void SlowDown()
 	{
 		moveSpeed = moveSpeed - 0.5f;
 		maxSpeed = maxSpeed - 0.5f;
-		animator.speed = animator.speed - 0.25f;
 	}
 
-	public void CharacterJump()
+	public void CheckGrounded()
 	{
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+	}
+
+	public void JumpPlayer()
+	{
+		playerChar.velocity = new Vector2(playerChar.velocity.x, jumpHeight);
 	}
 
 	public void SetDistanceTravelledBar (float distanceTravelled)

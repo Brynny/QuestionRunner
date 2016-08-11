@@ -2,14 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class correctAnswer : MonoBehaviour
+public class CityRunnerJump : MonoBehaviour 
 {
-	public Button speedUpButton;
+	public Button jumpButton;
 	public GameObject player;
 
 	public void Start()
 	{
-		
+
 	}
 
 	public void Update()
@@ -19,12 +19,12 @@ public class correctAnswer : MonoBehaviour
 
 	void OnEnable()
 	{
-		speedUpButton.onClick.AddListener(IncreaseSpeed);
+		jumpButton.onClick.AddListener(Jump);
 	}
 
-	void IncreaseSpeed()
+	void Jump()
 	{
-		player.GetComponent<playerMovement>().SpeedUp();
+		player.GetComponent<playerMovement>().JumpPlayer();
 		Destroy(transform.parent.gameObject);
 	}
 }
