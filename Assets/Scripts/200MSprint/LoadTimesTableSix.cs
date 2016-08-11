@@ -2,11 +2,11 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LoadTimesTableFour : MonoBehaviour
+public class LoadTimesTableSix : MonoBehaviour 
 {
-	public void LoadLevelFour () 
+	public void LoadLevelSix () 
 	{
-		SceneManager.LoadScene ("TimesTable4");
+		SceneManager.LoadScene ("TimesTable6");
 	}
 
 	public void LoadDefeatLevel () 
@@ -18,7 +18,7 @@ public class LoadTimesTableFour : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			LoadLevelFour();
+			LoadLevelSix();
 		}
 
 		if (other.gameObject.tag == "AI")
