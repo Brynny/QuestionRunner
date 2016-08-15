@@ -24,6 +24,11 @@ public class playerMovement : MonoBehaviour
 	public LayerMask whatIsGround;
 	private bool grounded;
 
+	//Audio
+	public AudioClip correctSound;
+	public AudioClip incorrectSound;
+	public AudioSource mySource;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -80,12 +85,14 @@ public class playerMovement : MonoBehaviour
 
 	public void SpeedUp()
 	{
+		mySource.PlayOneShot (correctSound, 2.0f);
 		moveSpeed = moveSpeed + 0.5f;
 		maxSpeed = maxSpeed + 0.5f;
 	}
 
 	public void SlowDown()
 	{
+		mySource.PlayOneShot (incorrectSound, 2.0f);
 		moveSpeed = moveSpeed - 0.5f;
 		maxSpeed = maxSpeed - 0.5f;
 	}

@@ -9,7 +9,7 @@ public class correctAnswer : MonoBehaviour
 
 	public void Start()
 	{
-		
+
 	}
 
 	public void Update()
@@ -22,9 +22,10 @@ public class correctAnswer : MonoBehaviour
 		speedUpButton.onClick.AddListener(IncreaseSpeed);
 	}
 
-	void IncreaseSpeed()
+	public void IncreaseSpeed()
 	{
 		player.GetComponent<playerMovement>().SpeedUp();
 		Destroy(transform.parent.gameObject);
 	}
+		
 }

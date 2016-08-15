@@ -14,36 +14,35 @@ public class GameController : MonoBehaviour
 	float incorrectAnswers = 5f;
 	public Text incorreectAnswerText;
 
+	public bool isCityRunner = false;
+
 	void Start () 
 	{
-		
+		StartCoroutine (Countdown ());
 	}
 	
 
 	void Update ()
 	{
-		countdown -= Time.deltaTime;
-		int countdownSeconds = Mathf.RoundToInt(countdown);
-		countdownText.text = countdownSeconds + " seconds";
-
 		//Start Timer
 		if (countdown <= 0)
 		{
-			Destroy (countdownText);
 			timer += Time.deltaTime;
 			//Show timer in nearest second
 			int seconds = Mathf.RoundToInt(timer);
-
-		//show the Timer
-		timerText.text = "Timer: " + seconds + " seconds";
+			//show the Timer
+			timerText.text = "Timer: " + seconds + " seconds";
 		}
 	}
 
 	void FixedUpdate()
 	{
-		//Track Incorrect Answer
+		if (isCityRunner) 
+		{
+			//Track Incorrect Answer
 			incorreectAnswerText.text = "Incorrect Answers Left: " + incorrectAnswers;
-			WrongAnswerTracker();
+			WrongAnswerTracker ();
+		}
 	}
 
 	public void WrongAnswer()
@@ -59,4 +58,14 @@ public class GameController : MonoBehaviour
 		}
 	}
 
+	private IEnumerator Countdown(){
+		while (countdown > 0) {
+			countdown -= Time.deltaTime;
+			int countdownSeconds = Mathf.RoundToInt (countdown);
+			countdownText.text = countdownSeconds + " seconds";
+			yield return null;
+		}
+	
+		Destroy (countdownText);
+	}
 }

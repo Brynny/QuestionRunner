@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ObstacleController : MonoBehaviour
 {
-	float moveSpeed = 2f;
+	public float moveSpeed = 2f;
 	private Rigidbody2D objectRB;
 
 	// Use this for initialization

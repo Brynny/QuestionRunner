@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CityRunnerFlag : MonoBehaviour
 {
-	float moveSpeed = 2f;
+	public float moveSpeed = 2f;
 	private Rigidbody2D flagRB;
 
 	// Use this for initialization

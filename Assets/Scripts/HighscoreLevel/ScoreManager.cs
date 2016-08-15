@@ -112,6 +112,7 @@ public class ScoreManager : MonoBehaviour
 			playerTime[i].text = myHighScores[i].playerScore.ToString();
 		}
 	}
+
 }
 
 
