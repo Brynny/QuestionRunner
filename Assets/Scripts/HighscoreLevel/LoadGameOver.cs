@@ -12,8 +12,8 @@ public class LoadGameOver : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			print ("hit");
+			gameController.GetComponent<HSmodeController> ().GameOver ();
 			Destroy (other.gameObject);
-			other.GetComponent<HSmodeController> ().GameOver ();
 		}
 	}
 }
