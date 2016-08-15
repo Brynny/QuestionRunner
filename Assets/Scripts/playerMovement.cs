@@ -92,7 +92,10 @@ public class playerMovement : MonoBehaviour
 
 	public void CheckGrounded()
 	{
-		grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+		if (groundCheck != null) 
+		{
+			grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
+		}
 	}
 
 	public void JumpPlayer()

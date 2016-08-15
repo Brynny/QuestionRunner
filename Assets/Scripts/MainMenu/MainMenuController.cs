@@ -9,9 +9,9 @@ public class MainMenuController : MonoBehaviour
 		SceneManager.LoadScene ("CharacterSelect");
 	}
 
-	void Highscores () 
+	public void Highscores () 
 	{
-		//SceneManager.LoadScene();
+		SceneManager.LoadScene("HighscoreBoard");
 	}
 
 	public void QuitGame () 

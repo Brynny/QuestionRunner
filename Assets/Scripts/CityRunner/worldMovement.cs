@@ -3,7 +3,7 @@ using System.Collections;
 
 public class worldMovement : MonoBehaviour 
 {
-	float moveSpeed = 2f;
+	public float moveSpeed;
 	private Rigidbody2D myRB;
 
 	// Use this for initialization

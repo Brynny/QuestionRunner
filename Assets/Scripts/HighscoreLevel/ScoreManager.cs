@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
 		{
 			if (PlayerPrefs.HasKey("NameEntry" + i.ToString()))
 			{
-				myHighScores.Add(new HighScoreEntry(PlayerPrefs.GetString("NameEntry" + i.ToString()), PlayerPrefs.GetInt("ScoreEntry" + i.ToString())));
+				myHighScores.Add(new HighScoreEntry(PlayerPrefs.GetString("NameEntry" + i.ToString()), PlayerPrefs.GetFloat("ScoreEntry" + i.ToString())));
 
 				Debug.Log (myHighScores[i].playerName + myHighScores[i].playerScore);
 			}
@@ -57,7 +57,9 @@ public class ScoreManager : MonoBehaviour
 		{
 			PlayerPrefs.SetString ("NameEntry" + i.ToString(), myHighScores[i].playerName);
 			PlayerPrefs.SetFloat ("ScoreEntry" + i.ToString(), myHighScores[i].playerScore);
+
 		}
+		PlayerPrefs.Save ();
 	}
 
 	void NewScores()
@@ -71,7 +73,7 @@ public class ScoreManager : MonoBehaviour
 		//for i if i is < myHighScores
 		for (int i = 0; i < myHighScores.Count; i++)
 		{
-			if (PlayerPrefs.GetFloat("RecentScore") > myHighScores[i].playerScore)
+			if (PlayerPrefs.GetFloat("RecentScore") < myHighScores[i].playerScore)
 			{
 				HighScoreEntry newScore = new HighScoreEntry (nameField.text, PlayerPrefs.GetFloat ("RecentScore"));
 				myHighScores.Insert (i, newScore);
@@ -102,6 +104,7 @@ public class ScoreManager : MonoBehaviour
 	{
 		gameOverCanvas.SetActive(false);
 		scoreCanvas.SetActive(true);
+		SaveScore (); 
 
 		for (int i = 0; i < myHighScores.Count; i++)
 		{
