@@ -107,6 +107,7 @@ public class playerMovement : MonoBehaviour
 
 	public void JumpPlayer()
 	{
+		mySource.PlayOneShot (correctSound, 2.0f);
 		playerChar.velocity = new Vector2(playerChar.velocity.x, jumpHeight);
 	}
 
